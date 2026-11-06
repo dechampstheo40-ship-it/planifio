@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Planifio : des outils numériques simples pour organiser ses semaines, son budget et ses projets.">
+<title>Planifio — Organise tes idées, libère ton temps</title>
+<style>
+:root{--ink:#202b35;--muted:#697782;--paper:#fbfaf7;--white:#fff;--green:#315c50;--mint:#dcebe3;--peach:#f4dfd1;--lav:#e8e4f3;--line:#e8e7e1;--yellow:#f3e9bd}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+a{color:inherit}.wrap{width:min(1120px,91%);margin:auto}
+header{padding:18px 0;border-bottom:1px solid var(--line);background:#fbfaf7ee;position:sticky;top:0;z-index:5;backdrop-filter:blur(10px)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:20px}.logo{font-weight:900;font-size:1.35rem;letter-spacing:-.06em}.logo span{color:var(--green)}.navlinks{display:flex;gap:24px;align-items:center}.navlinks a{text-decoration:none;font-size:.92rem;color:#53616a}.navlinks a:hover{color:var(--green)}
+.cart{border:1px solid #cbd8d0;border-radius:999px;padding:8px 14px;background:white;font-weight:700;cursor:pointer}
+.hero{padding:76px 0 64px;overflow:hidden}.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:50px}.eyebrow{font-size:.76rem;text-transform:uppercase;letter-spacing:.15em;color:var(--green);font-weight:800}
+h1{font-size:clamp(2.8rem,6vw,5.3rem);line-height:.99;letter-spacing:-.065em;margin:17px 0 20px;max-width:700px}.lead{font-size:1.13rem;color:var(--muted);max-width:550px}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--green);color:white;text-decoration:none;border:0;border-radius:999px;padding:13px 21px;font-weight:750;cursor:pointer}.btn:hover{filter:brightness(1.08)}.btn.secondary{background:white;color:var(--green);border:1px solid #cbd8d0}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+.art{min-height:350px;position:relative;display:grid;place-items:center}.blob{position:absolute;width:330px;height:330px;border-radius:42% 58% 65% 35%/45% 40% 60% 55%;background:var(--mint);transform:rotate(-8deg)}
+.sheet{position:relative;width:250px;background:white;border:1px solid #e5e7e1;border-radius:14px;padding:20px;box-shadow:0 22px 55px #203a2b1c;transform:rotate(5deg)}
+.sheet small{color:var(--green);font-weight:800;letter-spacing:.12em}.sheet h3{font-size:1.5rem;margin:8px 0 15px}.week{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.day{background:#f2f5f0;border-radius:7px;padding:7px 3px;text-align:center;font-size:.68rem}.day b{display:block;font-size:.85rem}.lines{margin-top:14px}.line{height:7px;border-radius:5px;background:#edf0eb;margin:8px 0}.line:nth-child(2){width:76%}.line:nth-child(3){width:88%}.sticker{position:absolute;right:0;bottom:35px;background:var(--peach);padding:13px 17px;border-radius:14px;transform:rotate(-7deg);font-weight:800}
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0}.trust-row{display:flex;justify-content:center;gap:35px;flex-wrap:wrap;color:#5e6c70;font-size:.9rem}.trust-row span:before{content:"✓";color:var(--green);font-weight:900;margin-right:8px}
+section{padding:76px 0}.section-top{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:28px}.section-top h2,.about h2,.faq h2{font-size:clamp(2rem,4vw,3.15rem);letter-spacing:-.05em;line-height:1.05;margin:8px 0}.section-top p{color:var(--muted);max-width:440px;margin:0}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.product{background:white;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}.cover{height:205px;padding:22px;display:grid;place-items:center;position:relative;overflow:hidden}.cover.mint{background:var(--mint)}.cover.peach{background:var(--peach)}.cover.lav{background:var(--lav)}.mini{width:150px;height:170px;background:white;border-radius:7px;box-shadow:0 10px 22px #263a2b1a;padding:14px;transform:rotate(-4deg)}.mini h4{font-size:1rem;line-height:1.1;margin:3px 0 12px}.mini .tiny{height:6px;background:#e9eee8;border-radius:5px;margin:7px 0}.mini .tiny.short{width:65%}.mini .blocks{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:12px}.mini .blocks i{height:28px;background:#eef4ef;border-radius:4px}.cover.peach .mini .blocks i{background:#f8eee8}.cover.lav .mini .blocks i{background:#f0eef7}
+.product-body{padding:20px;display:flex;flex-direction:column;flex:1}.tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--green);font-weight:850}.product h3{margin:7px 0 5px;font-size:1.18rem}.product p{margin:0;color:var(--muted);font-size:.92rem}.product-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:19px}.price{font-weight:900;font-size:1.2rem}.smallbtn{border:1px solid #cbd8d0;border-radius:999px;padding:9px 14px;background:white;color:var(--green);font-weight:750;cursor:pointer}
+.bundle{margin-top:25px;background:var(--green);color:white;border-radius:18px;padding:28px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px}.bundle p{color:#d9e5df;margin:4px 0 0}.bundle .btn{background:white;color:var(--green);white-space:nowrap}
+.about{background:#f0f2ec}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}.about p{color:var(--muted)}.steps{display:grid;gap:13px}.step{display:flex;gap:14px;align-items:flex-start;background:white;border:1px solid var(--line);border-radius:12px;padding:16px}.step b{display:grid;place-items:center;flex:0 0 32px;height:32px;border-radius:50%;background:var(--mint);color:var(--green)}.step p{margin:2px 0 0;font-size:.92rem}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.faq-card{border:1px solid var(--line);background:white;border-radius:12px;padding:20px}.faq-card h3{margin:0 0 7px;font-size:1rem}.faq-card p{margin:0;color:var(--muted);font-size:.92rem}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.85rem}.footrow{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.modalback{position:fixed;inset:0;background:#17231f77;display:none;place-items:center;padding:20px;z-index:10}.modalback.open{display:grid}.modal{width:min(480px,100%);background:white;border-radius:16px;padding:25px;box-shadow:0 20px 70px #0003}.modal h3{margin-top:0}.modal p{color:var(--muted)}.modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.close{float:right;border:0;background:#f1f3ef;border-radius:50%;width:32px;height:32px;font-size:1.1rem;cursor:pointer}
+@media(max-width:780px){.hero-grid,.about-grid{grid-template-columns:1fr}.hero{padding:54px 0}.art{min-height:300px}.products{grid-template-columns:1fr 1fr}.section-top{display:block}.section-top p{margin-top:12px}.bundle{align-items:flex-start;flex-direction:column}}
+@media(max-width:520px){.navlinks a{display:none}.products,.faq-grid{grid-template-columns:1fr}.trust-row{gap:12px;justify-content:flex-start}.hero-grid{gap:10px}.art{min-height:280px}.blob{width:260px;height:260px}.sheet{width:220px}.bundle{padding:23px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a class="logo" href="#" aria-label="Planifio accueil" style="text-decoration:none">plan<span>ifio</span>.</a>
+<div class="navlinks"><a href="#boutique">La boutique</a><a href="#comment">Comment ça marche</a><a href="#questions">Questions</a></div>
+<button class="cart" id="cartBtn">Panier <span id="cartCount">0</span></button>
+</nav></div></header>
+<main>
+<section class="hero"><div class="wrap hero-grid">
+<div><div class="eyebrow">Moins de charge mentale, plus de clarté</div>
+<h1>Organise tes idées. Respire un peu.</h1>
+<p class="lead">Des modèles numériques simples et jolis pour planifier ta semaine, suivre ton budget et avancer sur tes projets — à ton rythme.</p>
+<div class="actions"><a class="btn" href="#boutique">Voir les modèles</a><a class="btn secondary" href="#comment">Comment ça marche</a></div>
+</div>
+<div class="art" aria-label="Illustration décorative d'un planning hebdomadaire"><div class="blob"></div><div class="sheet"><small>PLANIFIO / SEMAINE</small><h3>Une semaine plus légère.</h3><div class="week"><div class="day">LUN<b>01</b></div><div class="day">MAR<b>02</b></div><div class="day">MER<b>03</b></div><div class="day">JEU<b>04</b></div><div class="day">VEN<b>05</b></div></div><div class="lines"><div class="line"></div><div class="line"></div><div class="line"></div></div></div><div class="sticker">À ton rythme ✦</div></div>
+</div></section>
+<div class="trust"><div class="wrap trust-row"><span>Fichiers numériques</span><span>Utilisation immédiate après achat</span><span>Simples à personnaliser</span></div></div>
+<section id="boutique"><div class="wrap">
+<div class="section-top"><div><div class="eyebrow">La petite boutique</div><h2>Choisis ton coup de pouce.</h2></div><p>Des outils conçus pour être faciles à prendre en main. Sélectionne celui qui correspond à ton besoin.</p></div>
+<div class="products">
+<article class="product"><div class="cover mint"><div class="mini"><div class="tag">PLANIFIO</div><h4>Ma semaine<br>en clair</h4><div class="tiny"></div><div class="tiny short"></div><div class="blocks"><i></i><i></i><i></i><i></i></div></div></div><div class="product-body"><div class="tag">Organisation</div><h3>Planning hebdomadaire</h3><p>Une page claire pour noter tes priorités, rendez-vous et petites tâches de la semaine.</p><div class="product-foot"><span class="price">4,90 €</span><a class="smallbtn" href="01_planning_hebdomadaire.pdf" download style="text-decoration:none">Télécharger l’exemple</a></div></div></article>
+<article class="product"><div class="cover peach"><div class="mini"><div class="tag">PLANIFIO</div><h4>Mon budget<br>simple</h4><div class="tiny"></div><div class="tiny"></div><div class="tiny short"></div><div class="blocks"><i></i><i></i><i></i><i></i></div></div></div><div class="product-body"><div class="tag">Budget</div><h3>Suivi de budget</h3><p>Un tableau pour visualiser les dépenses prévues, les dépenses réelles et les objectifs d'épargne.</p><div class="product-foot"><span class="price">5,90 €</span><a class="smallbtn" href="02_suivi_budget.pdf" download style="text-decoration:none">Télécharger l’exemple</a></div></div></article>
+<article class="product"><div class="cover lav"><div class="mini"><div class="tag">PLANIFIO</div><h4>Objectif<br>révisions</h4><div class="tiny"></div><div class="tiny short"></div><div class="blocks"><i></i><i></i><i></i><i></i></div><div class="tiny"></div></div></div><div class="product-body"><div class="tag">Projets & études</div><h3>Kit de révisions</h3><p>Des pages pour découper un objectif en étapes, suivre tes sessions et garder une vue d'ensemble.</p><div class="product-foot"><span class="price">5,90 €</span><a class="smallbtn" href="03_kit_revisions.pdf" download style="text-decoration:none">Télécharger l’exemple</a></div></div></article>
+</div>
+<div class="bundle"><div><div class="eyebrow" style="color:#dcebe3">Le pack complet</div><h3 style="font-size:1.45rem;margin:5px 0">Le trio pour repartir du bon pied</h3><p>Les trois modèles réunis dans une seule offre.</p></div><div style="display:flex;align-items:center;gap:15px"><strong style="font-size:1.35rem">12,90 €</strong><a class="btn" href="planifio_pack_complet.zip" download style="text-decoration:none">Télécharger les exemples</a></div></div>
+</div></section>
+<section class="about" id="comment"><div class="wrap about-grid">
+<div><div class="eyebrow">Simple comme bonjour</div><h2>Un petit outil. Un peu plus d'espace dans la tête.</h2><p>Planifio rassemble des supports pratiques et épurés. Pas besoin d'une méthode compliquée : choisis une page, adapte-la à ta façon et commence où tu en es.</p></div>
+<div class="steps"><div class="step"><b>1</b><p><strong>Choisis ton modèle.</strong><br>Planning, budget ou organisation de projet.</p></div><div class="step"><b>2</b><p><strong>Récupère ton fichier.</strong><br>Les produits sont prévus pour être proposés en téléchargement numérique.</p></div><div class="step"><b>3</b><p><strong>Personnalise-le.</strong><br>Imprime-le ou utilise-le sur ton appareil selon le format final.</p></div></div>
+</div></section>
+<section class="faq" id="questions"><div class="wrap"><div class="eyebrow">Questions fréquentes</div><h2>Avant de te lancer.</h2><div class="faq-grid">
+<div class="faq-card"><h3>Est-ce un produit physique ?</h3><p>Non. La boutique est conçue pour vendre des fichiers numériques. Aucun colis n'est envoyé.</p></div>
+<div class="faq-card"><h3>Comment recevoir mon fichier ?</h3><p>Les exemples gratuits sont téléchargeables directement depuis les fiches produits. La livraison payante devra être configurée sur une plateforme.</p></div>
+<div class="faq-card"><h3>Est-ce que le site est déjà ouvert aux paiements ?</h3><p>Non. Cette version propose des exemples gratuits. Le paiement réel et la livraison automatique ne sont pas encore activés.</p></div>
+<div class="faq-card"><h3>Les ventes sont-elles garanties ?</h3><p>Non. Il faudra faire connaître la boutique et vérifier que les produits répondent à une vraie demande.</p></div>
+</div></div></section>
+</main>
+<footer><div class="wrap footrow"><span><strong>planifio.</strong> — Des outils simples pour mieux s'organiser.</span><span>© 2026 Planifio · Boutique de démonstration</span></div></footer>
+<div class="modalback" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal"><button class="close" id="closeModal" aria-label="Fermer">×</button><div class="eyebrow">Aperçu de la boutique</div><h3 id="modalTitle">Produit</h3><p id="modalText">Ce produit sera proposé en téléchargement numérique une fois la boutique configurée.</p><p><strong id="modalPrice"></strong></p><div class="modal-actions"><button class="btn" id="addCart">Ajouter au panier démo</button><button class="smallbtn" id="closeText">Continuer à visiter</button></div></div></div>
+<script>
+const modal=document.getElementById('modal'), title=document.getElementById('modalTitle'), price=document.getElementById('modalPrice');
+let selected={name:'',price:0}, count=0;
+function openProduct(name,p){selected={name,price:Number(p)};title.textContent=name;price.textContent=selected.price.toFixed(2).replace('.',',')+' €';modal.classList.add('open')}
+document.querySelectorAll('[data-product]').forEach(b=>b.addEventListener('click',()=>openProduct(b.dataset.product,b.dataset.price)));
+function close(){modal.classList.remove('open')}
+document.getElementById('closeModal').addEventListener('click',close);
+document.getElementById('closeText').addEventListener('click',close);
+document.getElementById('addCart').addEventListener('click',()=>{count++;document.getElementById('cartCount').textContent=count;close();alert('Ajouté au panier de démonstration. Aucun paiement réel n’est activé sur cette version.')});
+document.getElementById('cartBtn').addEventListener('click',()=>alert('Panier de démonstration : '+count+' article(s). Aucun paiement réel n’est activé sur cette version.'));
+modal.addEventListener('click',e=>{if(e.target===modal)close()});
+</script>
+</body></html>
